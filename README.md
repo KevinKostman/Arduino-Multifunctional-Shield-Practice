@@ -6,7 +6,8 @@ https://sklep.msalamon.pl/produkt/wielofunkcyjny-shield-do-arduino/?gad_source=1
 
 %% Overview:
 
-All above codes are for use in Arduino microcontroller with a multifunctional shield attached. They feature multitude of exercises relevant for real-use cases, such as button counting with different debouncing methods, analog value scaling, 7-segment display usage etc.
+All above codes are for use in Arduino microcontroller with a multifunctional shield attached or custom circuit created. 
+They feature multitude of exercises relevant for real-use cases, such as button counting with different debouncing methods, analog value scaling, 7-segment display usage etc.
 
 %% Author:
 
