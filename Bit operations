@@ -1,0 +1,109 @@
+// C++ code
+//
+//https://www.tinkercad.com/things/95PziexTCjw-diode-bit-operations?sharecode=_DxPepaX7wFO_3JvAfTEB3mqP6rGV5s15EjgIEq0A0Y
+
+#define F_CPU 16000000L // for 16MHz uCon clock frequency 
+#define myDDR DDRD //convenient universal and easy to change definition 
+#define myPORT PORTD 
+#define myDelay 2000
+#include <avr/io.h>
+#include <util/delay.h>
+
+/*
+
+Task 1 
+myPORT = ~myPORT;
+_delay_ms(myDelay);
+
+*/
+
+ 	
+/*
+
+myDDR = 0xFF;
+myPORT = 0x00;
+while(1)
+{
+	myPORT = myPORT << 1;
+    myPORT += 1;
+    _delay_ms(1000)
+}
+
+
+
+*/
+
+
+/*
+Task 2
+
+for(int i= 0; i <= 6; i++)
+      {
+      _delay_ms(myDelay);
+      myPORT = myPORT << 1;
+
+      }
+      
+      for(int i= 0; i <= 6; i++)
+      {
+      _delay_ms(myDelay);
+      myPORT = myPORT >> 1;
+      }
+
+
+*/
+
+/*
+Task 3
+
+    	PORTD = 0x41;
+      _delay_ms(myDelay);
+      	uint8_t Copy = 0x00;
+  		Copy = PORTD;
+      	Copy = Copy >> 4;
+  		PORTD = PORTD << 4;
+		PORTD = PORTD + Copy;
+      _delay_ms(myDelay);
+
+
+*/
+/*
+Task 4 
+int Length = 0;
+	while(1)
+	{
+      for(Length = 3;Length >= 0; Length--)
+      {
+        
+        myPORT = myPORT + 1;
+        _delay_ms(myDelay);
+        myPORT = myPORT << 1;
+
+      }
+      
+      for(Length = 6;Length >= 0; Length--)
+      {
+        _delay_ms(myDelay);
+      myPORT = myPORT << 1;
+      }
+*/
+
+int main(void)
+{
+ myDDR = 0xFF;
+myPORT = 0x00;
+while(1)
+{
+	myPORT = myPORT << 1;
+    myPORT += 1;
+    _delay_ms(1000);
+}
+
+}
+
+
+
+
+
+
+
