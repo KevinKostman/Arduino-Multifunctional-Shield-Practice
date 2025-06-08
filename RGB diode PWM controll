@@ -1,0 +1,40 @@
+// C++ code
+//
+// https://www.tinkercad.com/things/bpj8HM3xm5u-pwm-rgb-diode?sharecode=J2rtgmy4z_boSD0YhKa66-RjQSrQ5m_uZj_Dn__eJJs
+#define red_light_pin 11
+#define green_light_pin 9
+#define blue_light_pin 10
+
+
+void setup()
+{
+  pinMode(red_light_pin, OUTPUT);
+  pinMode(green_light_pin, OUTPUT);
+  pinMode(blue_light_pin, OUTPUT);
+}
+
+void loop()
+{
+  uint8_t green_val = 0x00;
+  uint8_t red_val = 0x00;
+  uint8_t blue_val = 0x00;
+  
+  for(int g = 0; g < 5; g++)
+  {
+  	for(int r = 0; r < 5; r++)
+  	{
+    	for(int b = 0; b < 5; b++)
+    	{
+      		blue_val +=51;
+          
+            analogWrite(red_light_pin, red_val);
+ 			analogWrite(green_light_pin, green_val);
+  			analogWrite(blue_light_pin, blue_val);
+          
+          delay(500);
+    	}
+    	red_val += 51;
+  	}
+  	green_val +=51;
+  }
+}
