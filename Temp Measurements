@@ -1,4 +1,5 @@
 // Custom circuit
+// https://www.tinkercad.com/things/hLGng9dZjKj-bodacious-wluff-jofo?sharecode=8e0lcziL6EKq0tZizXnjY704DVOAo1UtGxITWCxuA_c
 const int lm35Pin = A0;    
 const int ledPin = 9;   
 
