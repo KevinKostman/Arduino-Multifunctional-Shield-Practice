@@ -1,4 +1,4 @@
-
+// Custom circuit
 const int lm35Pin = A0;    
 const int ledPin = 9;   
 
