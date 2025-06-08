@@ -1,0 +1,57 @@
+// C++ code
+//
+//https://www.tinkercad.com/things/iabsIMIRsR6-terrific-elzing
+#define sensorPin A0
+
+#define LEDPin PORTB5 
+#define F_CPU 16000000L 
+#include <avr/io.h>
+#include <stdlib.h>
+#include <avr/interrupt.h> /
+
+volatile int myCnt_ms=0, totalCnt_ms = 0;
+
+volatile int sensorVal = 0;
+volatile int arr[20] = {0};  
+volatile int index = 0;     
+volatile long sum = 0;      
+void TimerSetUp(void)
+{
+    
+TCCR0A|=(1<<WGM01); 
+TCCR0B|=(1<<CS00 | 1<<CS01); 
+OCR0A = 249; 
+TIMSK0|=(1<<OCIE0A); 
+  
+}
+
+void setup(){
+TimerSetUp();
+Serial.begin(9600);
+
+sei();
+} 
+void loop(){}
+
+ISR(TIMER0_COMPA_vect) {
+    myCnt_ms++;
+    totalCnt_ms++;
+
+  
+    if (myCnt_ms == 10) {
+        sensorVal = analogRead(sensorPin);
+        Serial.println(sensorVal);
+        sum -= arr[index];        
+        arr[index] = sensorVal;   
+        sum += sensorVal;         
+        index = (index + 1) % 20;
+        myCnt_ms = 0;
+    }
+
+    if (totalCnt_ms % 5000 == 0 && totalCnt_ms >= 5000) { 
+        int avg = sum / 20;  
+        Serial.println("Average Value = ");
+        Serial.println(avg);
+        totalCnt_ms = 0;
+    }
+}
